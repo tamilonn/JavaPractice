@@ -72,12 +72,14 @@ public class SingleLinkedList {
 		Node newNode = new Node();
 		newNode.setName("A");
 		top = newNode;
+		print(top);
 		
 		//add new node as A B
 				
 		newNode = new Node();
 		newNode.setName("B");		
 		top.setNext(newNode);
+		print(top);
 		
 		//add new node as A B C
 		newNode = new Node();
@@ -95,7 +97,7 @@ public class SingleLinkedList {
 		temp = top;
 		newNode.setNext(temp);
 		top = newNode;
-		
+		print(top);
 		
 		//add new node as Z A Y B C (between A and B)
 		newNode = new Node();
