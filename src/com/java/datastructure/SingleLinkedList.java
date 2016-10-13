@@ -46,14 +46,14 @@ public class SingleLinkedList {
 	
 	private static void print(Node node){
 		if (node != null){
-			System.out.println(node.getName());
+			System.out.print(node.getName());
 			
 			Node temp = node;
 			while (temp.getNext() != null){
-				System.out.println(temp.getNext().getName());
+				System.out.print(temp.getNext().getName());
 				temp = temp.getNext();
 			}
-			
+			System.out.print("----------------");
 		}
 		
 		
