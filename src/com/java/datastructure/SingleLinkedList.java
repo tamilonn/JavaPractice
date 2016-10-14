@@ -53,7 +53,7 @@ public class SingleLinkedList {
 				System.out.print(temp.getNext().getName());
 				temp = temp.getNext();
 			}
-			System.out.print("----------------");
+			System.out.println("----------------");
 		}
 		
 		
