@@ -37,14 +37,14 @@ public class SingleLinkedList {
 	
 	private static void print(Node node){
 		if (node != null){
-			System.out.print(node.getName());
+			System.out.print("[ "+node.getName()+" ]");
 			
 			Node temp = node;
 			while (temp.getNext() != null){
-				System.out.print(temp.getNext().getName());
+				System.out.print("[ "+temp.getNext().getName()+" ]");
 				temp = temp.getNext();
 			}
-			System.out.println("--");
+			System.out.println("");
 		}
 		
 		
@@ -54,72 +54,95 @@ public class SingleLinkedList {
 
 	/**
 	 * A single linked list demo
-	 * This creates a linked List with A,B,C,D,E,F
+	 * This creates a linked List 
 	 */
 	public static void main(String[] args) {
 		
 		//when no list add new node as A
 		Node top = null;
-		top = addNode(top, "A");
+		top = addNode(top, "Tamil");
 		print(top);
 		
 		//add new node B
-		top = addNext(top, "B");
+		top = addNext(top, "Padmini");
 		print(top);
 		
-		//add one more node as A B C
-		top = addNext(top, "C");
-		print(top);
 		
 
-		//add new node Z as TOP. as Z A B C
-		top = addNode(top, "Z");
-		print(top);
 		
-		//add new node Y as TOP. as  Y Z A B C
-		top = addNode(top, "Y");
-		print(top);
         
 		//add new node X after A as Y Z A X B C (between A and B)
-		top = addAfter(top, "A", "X");
+		top = addAfter(top, "Padmini", "Tarun");
 		print(top);
 		
 		//add new node W after Z as Y Z W A X B C (between A and B)
-		top = addAfter(top, "Z", "W");
+		top = addAfter(top, "Tarun", "Navya");
 		print(top);
 
 	    //Reversion as C B X A W Z Y
 		top = reverse(top);
 		print(top);
+		
+//		top = delete(top, "Navya");
+//		print(top);
 	    
 		
 
 	}
 
+	private static Node delete(Node top, String string) {
+		Node temp = top;
+		Node prev = null;
+		
+		while (temp.name != null && !temp.name.equals(string)){
+			prev = temp;
+			temp = temp.next;
+		}
+		
+		Node childOfDeleteNode = temp.next;
+		if (prev == null){
+			prev = childOfDeleteNode;
+			return prev;
+		}else{
+			prev.next = childOfDeleteNode;
+		}
+		
+		return top;
+	}
+
+
 //Y Z W A X B C 
 	private static Node reverse(Node top) {
 		
 		//find last null node and make it top node
-		int noOfNodes = 0;
+		int noOfNodes = 1;
 		Node temp = top;
+		Node newTop = null;
 		while (temp.next != null){
 			temp = temp.next;
 			++noOfNodes;
-		}
-		System.out.println(noOfNodes);
-		temp = top;
-		Node move = null;
-		for(int i=0; i < noOfNodes; i++ ){
-			move = temp.next;
-			move.setNext(temp);
-			temp = temp.next;
+
 		}
 		
+	    temp = top;
+		newTop = null;
+		for(int i=0; i < noOfNodes; i++){
+			while (temp.next != null){
+				temp = temp.next;
+				Node deleteNode = temp;
+				if (deleteNode.next == null){
+					newTop = addNext(newTop, deleteNode.name);
+					temp = top;
+					temp = delete(temp, deleteNode.name);
+				}
+			}
+		}
+		if (temp != null){//if last node
+			newTop = addNext(newTop, temp.name);
+		}
 		System.out.println(noOfNodes);
-	
 		
-		
-		return move;
+		return newTop;
 	}
 
 
