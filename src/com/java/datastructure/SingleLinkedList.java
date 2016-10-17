@@ -32,6 +32,9 @@ public class SingleLinkedList {
 		public void setNext(Node next) {
 			this.next = next;
 		}
+		public String toString(){
+			return this.name;
+		}
 		
 	}
 	
@@ -80,12 +83,14 @@ public class SingleLinkedList {
 		print(top);
 
 	    //Reversion as C B X A W Z Y
-		top = reverse(top);
+		top = reverseUgly(top);
 		print(top);
 		
-//		top = delete(top, "Navya");
-//		print(top);
-	    
+		top = reverse1(top);
+		print(top);
+		
+		top = reverseRecursive(top);
+		print(top);
 		
 
 	}
@@ -109,15 +114,59 @@ public class SingleLinkedList {
 		
 		return top;
 	}
+	
+	private static Node reverseRecursive(Node currNode) {
+		System.out.println("Starting...");
+		if (currNode == null || currNode.next == null){
+			return currNode;
+		}
+		System.out.println("call recursive function...");
+		Node remaining = reverseRecursive(currNode.next);
+		
+		System.out.println("remaining = " + remaining);
+		System.out.println("currNode = " + currNode);
+		currNode.next.next = currNode;
+		currNode.next = null;
+		
+		System.out.println("Return recursive function...");
+		return remaining;
+	}
+	
+	
+	private static Node reverse1(Node currNode) {
+		
+		
+		Node prevNode = null;
+		Node nextNode = null;
+		
+		while (currNode != null){
+			
+			nextNode = currNode.next;
+			
+			currNode.next = prevNode;	
+			
+			
+			prevNode = currNode;
+			
+			currNode = nextNode;		
+
+		}
+		
+	   
+		
+		return prevNode;
+	}
+	
+
 
 
 //Y Z W A X B C 
-	private static Node reverse(Node top) {
+	private static Node reverseUgly(Node top) {
 		
 		//find last null node and make it top node
 		int noOfNodes = 1;
 		Node temp = top;
-		Node newTop = null;
+		
 		while (temp.next != null){
 			temp = temp.next;
 			++noOfNodes;
@@ -125,7 +174,7 @@ public class SingleLinkedList {
 		}
 		
 	    temp = top;
-		newTop = null;
+	    Node newTop = null;
 		for(int i=0; i < noOfNodes; i++){
 			while (temp.next != null){
 				temp = temp.next;
