@@ -17,7 +17,7 @@ public class MagicSquare {
 	
 	public static void main(String[] args) {
 		
-		MagicSquare ms = new MagicSquare(25);
+		MagicSquare ms = new MagicSquare(3);
 		ms.print();
 		
 	}
