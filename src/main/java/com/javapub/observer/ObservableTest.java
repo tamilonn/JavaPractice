@@ -72,7 +72,7 @@ public class ObservableTest {
          */
         @Override
         public void update(Observable o, Object arg) {
-            System.out.println("FacebookObserver update()");
+            System.out.println("FacebookObserver update()" + o.toString());
             System.out.println(arg.toString());
         }
     }
@@ -90,7 +90,7 @@ public class ObservableTest {
          */
         @Override
         public void update(Observable o, Object arg) {
-            System.out.println("TwitterObserver update() invoked...");
+            System.out.println("TwitterObserver update() invoked..." + o.toString());
             System.out.println(arg.toString());
         }
     }
