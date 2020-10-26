@@ -1,4 +1,4 @@
-package com.test.java8;
+package java8;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

@@ -1,4 +1,4 @@
-package com.test.thread;
+package thread;
 
 public class ThreadWaitNotify {
 	

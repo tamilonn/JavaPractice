@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.java.datastructure;
+package com.datastructure;
 
 /**
  * @author tamil

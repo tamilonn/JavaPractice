@@ -1,4 +1,4 @@
-package com.java.datastructure;
+package com.datastructure;
 
 /**
  * This program creates NXN magic squares of odd number.
