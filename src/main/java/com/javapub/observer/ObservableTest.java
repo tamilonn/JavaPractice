@@ -1,4 +1,4 @@
-package com.javapub;
+package com.javapub.observer;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -44,6 +44,7 @@ public class ObservableTest {
                 Thread.sleep(1000);
                 //notify all observers in the available Observable
                 notifyObservers(getMessage());
+                System.out.println("----------------------");
             }
         }
 
