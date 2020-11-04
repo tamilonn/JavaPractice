@@ -83,14 +83,14 @@ public class SingleLinkedList {
 		print(top);
 
 	    //Reversion as C B X A W Z Y
-		top = reverseUgly(top);
-		print(top);
+//		top = reverseUgly(top);
+//		print(top);
 		
 		top = reverse1(top);
 		print(top);
 		
-		top = reverseRecursive(top);
-		print(top);
+//		top = reverseRecursive(top);
+//		print(top);
 		
 
 	}
