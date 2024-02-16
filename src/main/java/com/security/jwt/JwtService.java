@@ -52,7 +52,7 @@ public class JwtService {
 		JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
 		    .subject(subject)
 		    .issuer("https://cts.com")
-		    .expirationTime(new Date(new Date().getTime() + 1200 * 1000))// 1200 seconds
+		    .expirationTime(new Date(new Date().getTime() + 10 * 1000))// 1200 seconds
 		    .issueTime(new Date(new Date().getTime()))
 		    .claim("firstName", "Mohanraj")
 		    .claim("lastName", "Dhanasekar")
